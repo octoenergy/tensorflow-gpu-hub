@@ -6,7 +6,7 @@
 # BUILD_DIR  = .build
 # DOCKERFILE = .build/Dockerfile
 # STACKS_DIR = docker-stacks
-# SHA        = 23418de-dirty
+# SHA        = 6231767-dirty
 ############################################################################
 
 # Use Tensorflow offficial base image and run the same installation as in the other packages.

@@ -34,11 +34,11 @@ echo "
 cat $STACKS_DIR/base-notebook/Dockerfile | grep -v $BASE_SKIP >> $DOCKERFILE
 
 # copy files that are used during the build:
-ln -s $STACKS_DIR/base-notebook/jupyter_notebook_config.py .build/
-ln -s $STACKS_DIR/base-notebook/fix-permissions .build/
-ln -s $STACKS_DIR/base-notebook/start.sh .build/
-ln -s $STACKS_DIR/base-notebook/start-notebook.sh .build/
-ln -s $STACKS_DIR/base-notebook/start-singleuser.sh .build/
+cp $STACKS_DIR/base-notebook/jupyter_notebook_config.py .build/
+cp $STACKS_DIR/base-notebook/fix-permissions .build/
+cp $STACKS_DIR/base-notebook/start.sh .build/
+cp $STACKS_DIR/base-notebook/start-notebook.sh .build/
+cp $STACKS_DIR/base-notebook/start-singleuser.sh .build/
 chmod 755 .build/*
 
 echo "
