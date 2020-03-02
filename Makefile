@@ -1,4 +1,4 @@
-BUILD_DIR?=".build"
+BUILD_DIR?="docker"
 
 DOCKER_NAMESPACE?=krakentechnologies
 
@@ -14,15 +14,10 @@ HOST_PORT?=8888
 # https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
 .DEFAULT_GOAL := help
 .PHONY: help
-help:
+help:  ## Display this auto-generated help message
 	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: clean generate build push run
-clean:  ## Clean the build directory
-	rm -rf ${BUILD_DIR}/*
-
-generate:  ## Generate composite Docker file
-	BUILD_DIR=${BUILD_DIR} ./generate_Dockerfile.sh
+.PHONY: build push run
 
 build:  ## Build docker image
 	@echo "Building with ${TF_PACKAGE}==${TF_VERSION}"
@@ -31,7 +26,7 @@ build:  ## Build docker image
 		--build-arg TENSORFLOW_PACKAGE=${TF_PACKAGE} \
 		-t ${IMAGE}:${TAG} ${BUILD_DIR}
 
-push:  ## Push docker image manually
+push:  ## Push docker image to
 	@echo "Pushing ${IMAGE}:${TAG} to ${DOCKER_NAMESPACE}/${IMAGE}:${TAG}"
 	docker login
 	docker tag ${IMAGE}:${TAG} ${DOCKER_NAMESPACE}/${IMAGE}:${TAG}
