@@ -19,7 +19,7 @@ Because the gpu-enabled 1.15.2 packege is released separately, we can run
 
 `make build TF_PACKAGE=tensorflow-gpu TF_VERSION=1.15.2`
 
-#### Building TF2 (untested)
+#### Building TF2
 TF2x is released in a single package that includes GPU support. We can therefgore build using
 
 `make build TF_PACKAGE=tensorflow TF_VERSION=2.1.0`
