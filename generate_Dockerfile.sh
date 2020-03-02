@@ -50,9 +50,9 @@ cat src/hubextras.Dockerfile >> $DOCKERFILE
 
 echo "
 ############################################################################
-############################ TensorFlow, ML and Data packages ##############
+############################ Python packages ###############################
 ############################################################################
 " >> $DOCKERFILE
-cat src/tensorflow-ml.Dockerfile >> $DOCKERFILE
+cat src/python-deps.Dockerfile >> $DOCKERFILE
 
 echo "GPU Dockerfile was generated sucessfully in file ${DOCKERFILE}."
