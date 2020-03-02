@@ -1,4 +1,4 @@
-BUILD_DIR?="docker"
+BUILD_DIR?=docker
 
 DOCKER_NAMESPACE?=krakentechnologies
 
@@ -17,7 +17,11 @@ HOST_PORT?=8888
 help:  ## Display this auto-generated help message
 	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: build push run
+.PHONY: lint build push run
+
+lint:  ## Lint Dockerfile
+	docker run -v $(shell pwd)/${BUILD_DIR}/Dockerfile:$(shell pwd)/${BUILD_DIR}/Dockerfile \
+		--rm -i hadolint/hadolint hadolint $(shell pwd)/${BUILD_DIR}/Dockerfile
 
 build:  ## Build docker image
 	@echo "Building with ${TF_PACKAGE}==${TF_VERSION}"
