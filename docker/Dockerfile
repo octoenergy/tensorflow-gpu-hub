@@ -241,10 +241,9 @@ RUN pip install --upgrade pip>=19.0
 
 # Install poetry
 # --------------
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python 
-RUN cat $HOME/.poetry/env
-RUN source $HOME/.poetry/env
-RUN $HOME/.poetry/bin/poetry config virtualenvs.create false
+RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+ENV PATH "$HOME/.poetry/bin:$PATH"
+RUN poetry config virtualenvs.create false
 
 # Install Pipenv
 # --------------

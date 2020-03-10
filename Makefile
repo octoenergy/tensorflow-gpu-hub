@@ -37,4 +37,4 @@ push:  ## Push docker image to
 	docker push ${DOCKER_NAMESPACE}/${IMAGE}:${TAG}
 
 run:  ## Run image locally
-	docker run -it -p ${HOST_PORT}:8888 ${IMAGE}:${TAG}
+	docker run -it -p ${HOST_PORT}:8888 ${IMAGE}:${TAG} ${CMD}
