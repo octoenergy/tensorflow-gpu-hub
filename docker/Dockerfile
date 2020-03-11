@@ -237,7 +237,7 @@ LABEL maintainer="Octopus Energy <tech@octoenergy.com>"
 
 # Install pip
 # --------------
-RUN pip install --upgrade pip>=19.0
+RUN pip install --upgrade pip
 
 # Install poetry
 # --------------
